@@ -1,0 +1,40 @@
+@charset "utf-8";
+/*全体*/
+.wrapper{
+    max-width: 80%;
+    margin: 0 auto;
+    color: #666;
+}
+
+#header,#calc{
+    box-sizing: border-box;
+    text-align: center;
+}
+/*ヘッダー*/
+#header {
+    font-size: 24px;
+    padding: 1rem;
+}
+/*テキスト*/
+input{
+    box-sizing: border-box;
+    width: 80%;
+    height: 3.5rem;
+    font-size: 1.6rem;
+    text-align: right;
+    padding: 0 0.75rem;
+}
+/*ボタン関係*/
+button{
+    font-size: 1.5rem;
+    width: 20%;
+    height: 3.5rem;
+    color: #333;
+    vertical-align: middle;
+    border-color: #fff;
+}
+
+
+button:hover{
+  background-color: #ddd;
+}
