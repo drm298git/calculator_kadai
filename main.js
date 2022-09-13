@@ -35,11 +35,11 @@ function num_click_00(val){
     if(is_calc) resule.value = "0";
     is_calc = false;
 
-    if(result.value =="0" && val == "0"){
+    if(result.value =="00" && val == "00"){
         result.value = "0";
-    }else if(result.value == "0" && val == "."){
+    }else if(result.value == "00" && val == "."){
         result.value = "0.";
-    }else if(result.value == "0"){
+    }else if(result.value == "00"){
         result.value = val;
     }else{
         result.value += val;
