@@ -30,6 +30,22 @@ function num_click(val){
     }
 }
 
+//00キー押下
+function num_click_00(val){
+    if(is_calc) resule.value = "0";
+    is_calc = false;
+
+    if(result.value =="0" && val == "0"){
+        result.value = "0";
+    }else if(result.value == "0" && val == "."){
+        result.value = "0.";
+    }else if(result.value == "0"){
+        result.value = val;
+    }else{
+        result.value += val;
+    }
+}
+
 // 演算子キー押下
 function ope_click(val){
     if(is_calc)  is_calc = false;
@@ -56,5 +72,5 @@ function equal_click(){
 
 // 入力されている値が演算子かどうか
 function is_ope_last(){
-  return ["+","-","×","÷"].includes(result.value.toString().slice(-1));
+  return ["+","-","*","/"].includes(result.value.toString().slice(-1));
 }
