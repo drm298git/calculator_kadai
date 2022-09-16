@@ -3,6 +3,7 @@ let result = "";
 // =で計算したかどうか
 let is_calc = false;
 
+
 // 初期表示
 window.onload = function () {
     result = document.getElementById('result');
@@ -15,13 +16,19 @@ function is_ope_last(){
 
 // 最初に入力されている値が00どうか
 function num_click_00_first(){
-    return ["00"].includes(result.value.toString().slice(0,1));
+    return ["00"].includes(result.value.toString().slice(0,2));
 }
 
 // Cキー押下
 function c_click(){
     result.value = "";
     is_calc = false;
+}
+
+
+//桁数を揃える関数10桁を表示させる関数
+function digitNum(val) {
+    return Math.round(val*100000000)/100000000;
 }
 
 // 数字キー押下
@@ -46,7 +53,7 @@ function num_click_00(val){
     is_calc = false;
 
     if(num_click_00_first){
-        result.value = result.value = result.value.slice(0,2) + val; 
+        result.value = result.value.toString().slice(0,2) + val; 
     }else{
         result.value += val;
     }
