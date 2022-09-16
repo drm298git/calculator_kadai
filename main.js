@@ -8,9 +8,19 @@ window.onload = function () {
     result = document.getElementById('result');
 };
 
+// 入力されている値が演算子かどうか
+function is_ope_last(){
+    return ["+","-","*","/"].includes(result.value.toString().slice(-1));
+}
+
+// 最初に入力されている値が00どうか
+function num_click_00_first(){
+    return ["00"].includes(result.value.toString().slice(0,1));
+}
+
 // Cキー押下
 function c_click(){
-    result.value = "0";
+    result.value = "";
     is_calc = false;
 }
 
@@ -32,15 +42,11 @@ function num_click(val){
 
 //00キー押下
 function num_click_00(val){
-    if(is_calc) resule.value = "0";
+    if(is_calc) result.value = "00";
     is_calc = false;
 
-    if(result.value =="00" && val == "00"){
-        result.value = "0";
-    }else if(result.value == "00" && val == "."){
-        result.value = "0.";
-    }else if(result.value == "00"){
-        result.value = val;
+    if(num_click_00_first){
+        result.value = result.value = result.value.slice(0,2) + val; 
     }else{
         result.value += val;
     }
@@ -70,7 +76,3 @@ function equal_click(){
     }
 }
 
-// 入力されている値が演算子かどうか
-function is_ope_last(){
-  return ["+","-","*","/"].includes(result.value.toString().slice(-1));
-}
