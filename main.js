@@ -19,12 +19,18 @@ function num_click_00_first(){
     return ["00"].includes(result.value.toString().slice(0,2));
 }
 
+//小数点キー押下
+function radix_click(){
+    result.value = result.value += "."
+    is_calc = false;
+
+}
+
 // Cキー押下
 function c_click(){
     result.value = "";
     is_calc = false;
 }
-
 
 //桁数を揃える関数10桁を表示させる関数
 function digitNum(val) {
@@ -49,12 +55,11 @@ function num_click(val){
 
 //00キー押下
 function num_click_00(val){
-    if(is_calc) result.value = "00";
-    is_calc = false;
-
-    if(num_click_00_first){
-        result.value = result.value.toString().slice(0,2) + val; 
-    }else{
+    if(is_calc) is_calc = false;
+    
+    if(num_click_00_first()){
+        result.value=""
+    } else {
         result.value += val;
     }
 }
